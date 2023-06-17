@@ -1,0 +1,5 @@
+<launch>
+    <node name="turtlesim"      pkg="turtlesim"     type="turtlesim_node" />
+    <node name="service_client" pkg="shuttle4nodes" type="service_test_clients.py"
+          output="screen" /> 
+</launch>

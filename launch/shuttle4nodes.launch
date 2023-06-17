@@ -1,0 +1,18 @@
+<launch>
+    <arg name="lsz1" value="7.0" />
+    <arg name="lsz2" value="9.0" />
+    <param name="/lsz_begin" type="double" value="$(arg lsz1)" />
+    <param name="/lsz_end" type="double" value="$(arg lsz2)" />
+
+    <include file="$(find tiny_keyboard_reader)/launch/keyboard_reader.launch" />
+
+    <node name="turtlesim"      pkg="turtlesim"     type="turtlesim_node" />
+    <node name="redL_detector"  pkg="shuttle4nodes" type="redL_detector_thread.py" 
+          output="screen" /> 
+    <node name="shuttle2points" pkg="shuttle4nodes" type="shuttle2points.py" 
+          output="screen" /> 
+    <node name="lsz_detector"   pkg="shuttle4nodes" type="lsz_detector.py"
+	  output="screen" /> 
+    <node name="tt_control"     pkg="shuttle4nodes" type="tt_control.py"
+          output="screen" /> 
+</launch>
